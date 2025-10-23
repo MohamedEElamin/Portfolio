@@ -88,7 +88,17 @@ footer {
   color: #fcf6f5;
   font-family: "Pacifico", cursive;
 }
+ul {
+  text-align: center;
+  list-style: none; /* removes bullets */
+  padding: 0;
+}
 
+ul li {
+  display: inline-block; /* keeps them side by side */
+  text-align: center;
+  margin: 0 10px;
+}
 @media (max-width: 600px) {
   nav ul {
     display: flex;
