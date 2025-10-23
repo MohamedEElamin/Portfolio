@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #7b9acc;
+  font-family: sans-serif;
+  background-color: goldenrod;
   color: #fcf6f5;
   line-height: 1.6;
   max-width: 1200px;
@@ -17,7 +17,7 @@ body {
 
 /* ===== Header ===== */
 header {
-  background-color: #fcf6f5;
+  background-color: goldenrod;
   color: #7b9acc;
   text-align: center;
   padding: 2rem 1rem;
