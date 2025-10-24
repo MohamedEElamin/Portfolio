@@ -1,117 +1,63 @@
-body {
-  margin: 0 auto;
-
-  font-size: 100%;
-  width: 98%;
-  max-width: auto;
-  border: solid black;
-  background-color: #7b9acc;
-  font-family: "Dancing Script", cursive;
+/* Timeline Sections */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  position: relative;
+  padding-left: 2rem;
 }
 
-header {
-  background-color: #fcf6f5;
-  color: #7b9acc;
-  padding: 1rem;
-  text-align: center;
-}
-
-section {
-  padding: 50px 20px;
-  text-align: center;
-  color: #fcf6f5;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-  max-width: 600px;
-  margin: auto;
-}
-
-.skills-grid span {
-  background: #fcf6f5;
-  color: #7b9acc;
-  padding: 10px;
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.8rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary);
   border-radius: 5px;
 }
 
-.project-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+.timeline-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project {
-  background: #fcf6f5;
-  padding: 15px;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  color: #7b9acc;
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -0.65rem;
+  top: 1rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--primary);
+  border-radius: 50%;
 }
 
-footer {
-  background: #fcf6f5;
-  color: #7b9acc;
-  text-align: center;
-  padding: 10px 0;
-  margin-top: 20px;
-}
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+.timeline-item h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
 }
 
-.social-icon img {
-  width: 40px; /* Adjust icon size */
-  height: 40px;
-  transition: transform 0.3s ease-in-out;
+.timeline-item .company {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.8rem;
 }
 
-.social-icon:hover img {
-  transform: scale(1.2);
+.timeline-item ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  color: #333;
 }
 
-.calc {
-  width: 80%;
-  height: auto;
-  padding: 2em;
-  margin: 50px auto;
-  border: 2px solid rgb(50, 67, 220);
-  box-shadow: 1em 1em rgb(25%, 25%, 25%, 25%);
-  font-size: 130%;
-  color: #fcf6f5;
-  font-family: "Pacifico", cursive;
-}
-ul {
-  text-align: center;
-  list-style: none; /* removes bullets */
-  padding: 0;
-}
-
-ul li {
-  display: inline-block; /* keeps them side by side */
-  text-align: center;
-  margin: 0 10px;
-}
-@media (max-width: 600px) {
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin: 5px 0;
-  }
-
-  .project-list {
-    flex-direction: column;
-    align-items: center;
-  }
+.timeline-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 120, 255, 0.15);
 }
