@@ -1,59 +1,54 @@
-/* --------- Base Reset --------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+:root {
+  --primary: #0078ff;
+  --bg-dark: #0a0a0a;
+  --bg-light: #f5f5f5;
+  --text-dark: #333;
+  --text-light: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  color: #f8f9fc;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  overflow-x: hidden;
+  background: var(--bg-light);
+  color: var(--text-dark);
 }
 
-/* --------- Variables --------- */
-:root {
-  --primary: #00b4d8;
-  --secondary: #48cae4;
-  --bg-card: rgba(255, 255, 255, 0.1);
-  --glass: rgba(255, 255, 255, 0.15);
-  --text-dark: #222;
-  --text-light: #f8f9fc;
-}
-
-/* --------- Header --------- */
+/* Navigation */
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 1rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: auto;
+  width: 100%;
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: 1px;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .logo span {
-  color: white;
+  color: var(--primary);
 }
 
 .nav-links {
@@ -66,199 +61,97 @@ nav {
   text-decoration: none;
   color: var(--text-light);
   font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -4px;
-  background: var(--primary);
-  transition: width 0.3s ease;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
   color: var(--primary);
 }
 
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* --------- Hero Section --------- */
+/* Hero Section */
 .hero {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #001219, #0a9396, #005f73);
-  background-size: 400% 400%;
-  animation: gradientShift 12s ease infinite;
+  background: linear-gradient(135deg, var(--bg-dark), #121212);
+  color: var(--text-light);
   text-align: center;
-  color: white;
   padding: 2rem;
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.hero-content {
-  max-width: 700px;
-}
-
 .hero h2 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.highlight {
-  color: var(--secondary);
+  font-size: 2.5rem;
+  animation: fadeInDown 1s ease forwards;
 }
 
 .hero p {
+  margin: 1rem 0;
   font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 1.8rem;
+  opacity: 0.8;
+}
+
+.highlight {
+  color: var(--primary);
 }
 
 .btn {
-  padding: 0.8rem 1.6rem;
-  border: none;
-  border-radius: 50px;
+  display: inline-block;
   background: var(--primary);
   color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
   text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .btn:hover {
-  background: var(--secondary);
   transform: scale(1.05);
+  background: #005fcc;
 }
 
-/* --------- Sections --------- */
+/* Sections */
 .section {
-  padding: 5rem 2rem;
+  padding: 6rem 10%;
   text-align: center;
-  max-width: 1000px;
-  margin: auto;
 }
 
 .section h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
-  color: var(--secondary);
+  color: var(--primary);
 }
 
 .section p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #d9e4ec;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-/* --------- Timeline Sections --------- */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  position: relative;
-  margin-top: 3rem;
-  padding-left: 2rem;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 1rem;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--primary);
-  border-radius: 5px;
-}
-
-.timeline-item {
-  background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
-  text-align: left;
-}
-
-.timeline-item:hover {
-  transform: translateY(-5px);
-  border-color: var(--secondary);
-  box-shadow: 0 10px 25px rgba(0, 180, 216, 0.3);
-}
-
-.timeline-item h3 {
-  color: var(--secondary);
-  margin-bottom: 0.4rem;
-  font-size: 1.3rem;
-}
-
-.timeline-item .company {
-  color: #adb5bd;
-  margin-bottom: 0.6rem;
-  font-weight: 500;
-}
-
-.timeline-item ul {
-  list-style: disc;
-  padding-left: 1.2rem;
-  color: #e3f2fd;
-}
-
-/* --------- Projects Grid --------- */
+/* Projects */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 2.5rem;
 }
 
 .card {
-  background: var(--bg-card);
-  border-radius: 14px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 30px rgba(0, 180, 216, 0.3);
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  display: block;
 }
 
 .card-content {
-  padding: 1rem 1.2rem;
-  text-align: left;
+  padding: 1.2rem;
 }
 
 .card-content h3 {
@@ -266,112 +159,68 @@ nav {
   margin-bottom: 0.5rem;
 }
 
-.card-content p {
-  color: #e0fbfc;
-}
-
-/* --------- Contact --------- */
+/* Contact Form */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 600px;
-  margin: 2rem auto;
+  max-width: 500px;
+  margin: auto;
 }
 
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
-  padding: 0.9rem;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  border: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  font-family: inherit;
   font-size: 1rem;
-  outline: none;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #bbb;
 }
 
 .contact-form button {
-  align-self: center;
+  background: var(--primary);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* --------- Footer --------- */
+.contact-form button:hover {
+  transform: translateY(-3px);
+}
+
+/* Footer */
 footer {
   text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #ddd;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  margin-top: 2rem;
 }
 
-/* --------- Reveal Animation --------- */
+/* Scroll animations */
 .reveal {
-  opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s ease-out;
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
 .reveal.active {
-  opacity: 1;
   transform: translateY(0);
+  opacity: 1;
 }
 
-/* Timeline Sections */
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -0.65rem;
-  top: 1rem;
-  width: 1rem;
-  height: 1rem;
-  background: var(--primary);
-  border-radius: 50%;
-}
-
-.timeline-item h3 {
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-
-.timeline-item .company {
-  font-weight: 600;
-  color: #555;
-  margin-bottom: 0.8rem;
-}
-
-.timeline-item ul {
-  list-style: disc;
-  padding-left: 1.2rem;
-  color: #333;
-}
-
-.timeline-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 120, 255, 0.15);
-}
-
-/* --------- Responsive --------- */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-
-  header {
-    text-align: center;
-  }
-
-  .hero h2 {
-    font-size: 2rem;
-  }
-
-  .section {
-    padding: 3rem 1.5rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
