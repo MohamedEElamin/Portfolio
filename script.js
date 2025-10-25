@@ -1,5 +1,6 @@
 // Reveal on scroll
 const reveals = document.querySelectorAll(".card, .section p");
+const revealElements = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
   reveals.forEach((el) => {
@@ -12,6 +13,16 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+function revealOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+  revealElements.forEach((el) => {
+    const rect = el.getBoundingClientRect().top;
+    if (rect < triggerBottom) el.classList.add("active");
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
 
 // Smooth scroll effect for navigation
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

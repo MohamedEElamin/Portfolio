@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 /* --------------------
-🌈 Modern Portfolio CSS
 Author: Mohamed Elamin
 -------------------- */
 
@@ -226,7 +225,7 @@ nav {
 .timeline-item .company {
   color: #adb5bd;
   margin-bottom: 0.6rem;
-  font-weight: 500;
+  font-weight: 900;
 }
 
 .timeline-item ul {
@@ -303,8 +302,64 @@ nav {
   color: #bbb;
 }
 
-.contact-form button {
-  align-self: center;
+.contact p {
+  text-align: center;
+}
+/* 🌐 Social Icons (Uniform Size) */
+/* 🌐 Social Icons (Images version) */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* The circle wrapper */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; /* same width for all */
+  height: 48px; /* same height for all */
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* The image itself */
+.social-icon img {
+  width: 60%; /* scales nicely inside the circle */
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: brightness(0.95) contrast(1.1);
+}
+
+/* Hover Effects */
+.social-icon:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, #00b4d8, #48cae4);
+  box-shadow: 0 6px 15px rgba(72, 202, 228, 0.4);
+}
+
+.social-icon:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .social-icon {
+    width: 42px;
+    height: 42px;
+  }
+  .social-icon img {
+    width: 58%;
+  }
 }
 
 /* --------- Footer --------- */
@@ -351,7 +406,7 @@ footer {
 /* 🎓 Education Section */
 .education {
   position: relative;
-  background: linear-gradient(145deg, #001219, #013a63);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #f1f1f1;
   padding: 5rem 1.5rem;
   overflow: hidden;
@@ -422,7 +477,6 @@ footer {
 }
 
 .education .timeline-item::before {
-  content: "";
   position: absolute;
   left: -0.75rem;
   top: 1.5rem;
@@ -510,4 +564,40 @@ footer {
   .education .timeline-item {
     padding: 1.2rem;
   }
+}
+
+.live-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+}
+
+.live-link:hover {
+  background: linear-gradient(90deg, #0056b3, #0099cc);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+  font-size: 1.8rem;
+  color: #48cae4;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
